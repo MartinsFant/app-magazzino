@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.TextField?>
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="marti.magazzino.gui.product.ProductTableViewController">
+   <children>
+      <Button layoutX="551.0" layoutY="516.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" prefHeight="17.0" prefWidth="211.0" text="Go Back " />
+      <VBox layoutX="26.0" layoutY="19.0" prefHeight="421.0" prefWidth="603.0" spacing="10.0">
+         <children>
+            <Label text="Product Table ">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableView" onMouseClicked="#userClickedOnTable" prefHeight="231.0" prefWidth="542.0">
+              <columns>
+                <TableColumn fx:id="productCodeColumn" onEditCommit="#changeProductCodeCellEvent" prefWidth="232.0" text="Product Code" />
+                <TableColumn fx:id="quantityColumn" onEditCommit="#changeQuantityCellEvent" prefWidth="204.0" text="Quantity" />
+                 <TableColumn fx:id="salePriceColumn" onEditCommit="#changeSalePriceCellEvent" prefWidth="166.0" text="Sale Price (€)" />
+              </columns>
+            </TableView>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                     <ComboBox fx:id="comboBox" onAction="#comboBoxProductCodeWasUpdated" prefWidth="150.0" />
+                  <!--<TextField fx:id="productCodeTextField" prefWidth="175.0" promptText="Product Code" />-->
+                  <TextField fx:id="quantityTextField" prefWidth="175.0" promptText="Quantity"/>
+                  <TextField fx:id="salePriceTextField" prefWidth="175.0" promptText="Sale Price"/>
+                  </children>
+
+
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#newProductButtonPushed" prefWidth="175.0" text="Add New Product" />
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefWidth="175.0" text="Delete Product(s) " />
+                  <Button fx:id="detailedProductViewButton" mnemonicParsing="false" onAction="#changeSceneToDetailedProductView" text="Detailed Product " />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
